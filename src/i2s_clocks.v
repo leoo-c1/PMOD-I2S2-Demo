@@ -24,8 +24,8 @@ module i2s_clocks (
     always @ (posedge mclk) begin
         resetn_1 <= resetn;
         resetn_2 <= resetn_1;
-        reg lockin_in_1 <= locked_in;
-        reg lockin_in_2 <= locked_in_1;
+        lockin_in_1 <= locked_in;
+        lockin_in_2 <= locked_in_1;
 
         if (!resetn_2 || !locked_in_2) begin
             mclk_count <= 'b0;
