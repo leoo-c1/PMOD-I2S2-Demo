@@ -11,7 +11,7 @@ module tb_i2s_clocks;
 
     wire locked_out;
 
-    clocking clock_test (
+    i2s_clocks clock_test (
         .mclk(mclk),
         .locked_in(locked_in),
         .resetn(resetn),
@@ -25,9 +25,9 @@ module tb_i2s_clocks;
     end
 
     initial begin
-        $dumpfile("tb.vcd")
-        $dumpvars(0, tb_i2s_clocks)
-        
+        $dumpfile("tb.vcd");
+        $dumpvars(0, tb_i2s_clocks);
+
         resetn = 0;
         locked_in = 0;
         mclk = 0;

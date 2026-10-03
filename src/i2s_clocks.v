@@ -1,4 +1,4 @@
-module line_in (
+module i2s_clocks (
     input wire mclk,        // 22.579 MHz master clock
     input wire locked_in,   // Indicates the clocking wizard output is stable
 

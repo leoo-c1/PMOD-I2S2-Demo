@@ -25,10 +25,6 @@ vivado_pid*.zip
 *.dcp
 *.xsa
 *.vvp
-*.vcd
-*.fst
-*.lxt
-*.lxt2
 .vscode/
 *.swp
 Thumbs.db
