@@ -1,33 +1,31 @@
 module i2s_clocks (
     input wire mclk,        // 22.579 MHz master clock
-    input wire locked_in,   // Indicates the clocking wizard output is stable
+    input wire locked,      // Indicates the clocking wizard output is stable
 
     input wire resetn,      // Active low reset
 
     output reg sclk,        // Serial clock toggling every 4 mclk periods (2.8224 MHz)
     output reg lrclk,       // Left-right clock toggling every 32 sclk periods (44.1 kHz)
 
-    output wire locked_out   // Indicates clocking wizard output is stable
+    output wire rst_n_sync  // Low when either system is in reset or clocking wizard is not stable
     );
-
-    assign locked_out = locked_in;  // Pass-through
 
     reg [1:0] mclk_count = 'b0;     // Counts 4 mclk periods to generate serial clock
     reg [5:0] sclk_count = 'b0;     // Counts 64 sclk inversions to generate lrclk
 
-    // Used for double flopping to avoid metastability
-    reg resetn_1;
-    reg resetn_2;
-    reg lockin_in_1;
-    reg lockin_in_2;
+    // Double flopping to avoid metastability
+    reg rst_n_sync_1 = 1'b0;
+    reg rst_n_sync_2 = 1'b0;
+
+    wire rst_n_async;
+    assign rst_n_async = resetn && locked;
+    assign rst_n_sync = rst_n_sync_2;
 
     always @ (posedge mclk) begin
-        resetn_1 <= resetn;
-        resetn_2 <= resetn_1;
-        lockin_in_1 <= locked_in;
-        lockin_in_2 <= locked_in_1;
+        rst_n_sync_1 <= rst_n_async;
+        rst_n_sync_2 <= rst_n_sync_1;
 
-        if (!resetn_2 || !locked_in_2) begin
+        if (!rst_n_sync_2) begin
             mclk_count <= 'b0;
             sclk_count <= 'b0;
             sclk <= 1'b0;
