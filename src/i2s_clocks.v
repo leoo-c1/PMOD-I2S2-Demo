@@ -15,8 +15,19 @@ module i2s_clocks (
     reg [1:0] mclk_count = 'b0;     // Counts 4 mclk periods to generate serial clock
     reg [5:0] sclk_count = 'b0;     // Counts 64 sclk inversions to generate lrclk
 
+    // Used for double flopping to avoid metastability
+    reg resetn_1;
+    reg resetn_2;
+    reg lockin_in_1;
+    reg lockin_in_2;
+
     always @ (posedge mclk) begin
-        if (!resetn) begin
+        resetn_1 <= resetn;
+        resetn_2 <= resetn_1;
+        reg lockin_in_1 <= locked_in;
+        reg lockin_in_2 <= locked_in_1;
+
+        if (!resetn_2 || !locked_in_2) begin
             mclk_count <= 'b0;
             sclk_count <= 'b0;
             sclk <= 1'b0;
@@ -24,15 +35,15 @@ module i2s_clocks (
         end else begin
             if (mclk_count < 'd3) begin
                 mclk_count <= mclk_count + 1'b1;
+            end else if (sclk_count >= 'd63) begin
+                sclk <= ~sclk;
+                lrclk <= ~lrclk;
+                mclk_count <= 'b0;
+                sclk_count <= 'b0;
             end else begin
                 sclk <= ~sclk;
                 mclk_count <= 'b0;
                 sclk_count <= sclk_count + 1'b1;
-            end
-
-            if (sclk_count >= 'd63) begin
-                lrclk <= ~lrclk;
-                sclk_count <= 'b0;
             end
         end
     end
