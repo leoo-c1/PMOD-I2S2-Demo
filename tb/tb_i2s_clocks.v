@@ -32,7 +32,7 @@ module tb_i2s_clocks;
         locked_in = 0;
         mclk = 0;
 
-        #20;
+        #50;
         resetn = 1;
 
         #20; locked_in = 1;
