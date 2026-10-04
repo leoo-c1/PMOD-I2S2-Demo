@@ -42,7 +42,7 @@ module i2s2_demo_top (
       .SRVAL(1'b0)                    // Initializes the ODDRE1 Flip-Flops to the specified value (1'b0, 1'b1)
    )
    ODDRE1_mclk_to_adc (
-      .Q(mclk_out_adc),   // 1-bit output: Data output to IOB
+      .Q(mclk_adc),   // 1-bit output: Data output to IOB
       .C(mclk),   // 1-bit input: High-speed clock input
       .D1(1'b1), // 1-bit input: Parallel data input 1
       .D2(1'b0), // 1-bit input: Parallel data input 2
@@ -58,7 +58,7 @@ module i2s2_demo_top (
       .SRVAL(1'b0)                    // Initializes the ODDRE1 Flip-Flops to the specified value (1'b0, 1'b1)
    )
    ODDRE1_mclk_to_dac (
-      .Q(mclk_out_dac),   // 1-bit output: Data output to IOB
+      .Q(mclk_dac),   // 1-bit output: Data output to IOB
       .C(mclk),   // 1-bit input: High-speed clock input
       .D1(1'b1), // 1-bit input: Parallel data input 1
       .D2(1'b0), // 1-bit input: Parallel data input 2
