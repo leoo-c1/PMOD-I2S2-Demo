@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x0",
+      "boundary_crc": "0x7434CE63E1E718E5",
       "device": "xck26-sfvc784-2LV-c",
       "gen_directory": "../../../../I2S2_PMOD_Bringup.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -12,7 +12,42 @@
     "design_tree": {
       "zynq_ultra_ps_e_0": "",
       "clk_wiz_0": "",
-      "oddr_0": ""
+      "i2s2_demo_top_0": "",
+      "ila_0": ""
+    },
+    "ports": {
+      "sd_adc": {
+        "type": "data",
+        "direction": "I"
+      },
+      "sd_dac": {
+        "type": "data",
+        "direction": "O"
+      },
+      "lrclk_dac": {
+        "type": "data",
+        "direction": "O"
+      },
+      "lrclk_adc": {
+        "type": "data",
+        "direction": "O"
+      },
+      "sclk_dac": {
+        "type": "data",
+        "direction": "O"
+      },
+      "sclk_adc": {
+        "type": "data",
+        "direction": "O"
+      },
+      "mclk_dac": {
+        "type": "clk",
+        "direction": "O"
+      },
+      "mclk_adc": {
+        "type": "clk",
+        "direction": "O"
+      }
     },
     "components": {
       "zynq_ultra_ps_e_0": {
@@ -1279,10 +1314,10 @@
         "has_run_ip_tcl": "true",
         "parameters": {
           "CLKOUT1_JITTER": {
-            "value": "143.917"
+            "value": "139.680"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "81.119"
+            "value": "79.441"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
             "value": "22.5792"
@@ -1294,30 +1329,181 @@
             "value": "HIGH"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "13.375"
+            "value": "13.750"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "59.250"
+            "value": "60.875"
           },
           "MMCM_DIVCLK_DIVIDE": {
             "value": "1"
+          },
+          "RESET_PORT": {
+            "value": "resetn"
+          },
+          "RESET_TYPE": {
+            "value": "ACTIVE_LOW"
           }
         }
       },
-      "oddr_0": {
-        "vlnv": "xilinx.com:ip:oddr:1.0",
-        "ip_revision": "5",
-        "xci_name": "design_1_oddr_0_0",
-        "xci_path": "ip\\design_1_oddr_0_0\\design_1_oddr_0_0.xci",
-        "inst_hier_path": "oddr_0",
-        "has_run_ip_tcl": "true"
+      "i2s2_demo_top_0": {
+        "vlnv": "xilinx.com:module_ref:i2s2_demo_top:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_i2s2_demo_top_0_0",
+        "xci_path": "ip\\design_1_i2s2_demo_top_0_0\\design_1_i2s2_demo_top_0_0.xci",
+        "inst_hier_path": "i2s2_demo_top_0",
+        "has_run_ip_tcl": "true",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "i2s2_demo_top",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "mclk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "22587043",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_wiz_0_0_clk_out1",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "locked": {
+            "direction": "I"
+          },
+          "resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "sd_adc": {
+            "direction": "I",
+            "parameters": {
+              "LAYERED_METADATA": {
+                "value": "undef",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "mclk_adc": {
+            "direction": "O"
+          },
+          "mclk_dac": {
+            "direction": "O"
+          },
+          "sclk_adc": {
+            "direction": "O"
+          },
+          "sclk_dac": {
+            "direction": "O"
+          },
+          "lrclk_adc": {
+            "direction": "O"
+          },
+          "lrclk_dac": {
+            "direction": "O"
+          },
+          "sd_dac": {
+            "direction": "O"
+          }
+        }
+      },
+      "ila_0": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "ip_revision": "19",
+        "xci_name": "design_1_ila_0_0",
+        "xci_path": "ip\\design_1_ila_0_0\\design_1_ila_0_0.xci",
+        "inst_hier_path": "ila_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "C_DATA_DEPTH": {
+            "value": "2048"
+          },
+          "C_MONITOR_TYPE": {
+            "value": "Native"
+          },
+          "C_NUM_OF_PROBES": {
+            "value": "4"
+          }
+        }
       }
     },
     "nets": {
       "clk_wiz_0_clk_out1": {
         "ports": [
           "clk_wiz_0/clk_out1",
-          "oddr_0/clk_in"
+          "i2s2_demo_top_0/mclk",
+          "ila_0/clk"
+        ]
+      },
+      "clk_wiz_0_locked": {
+        "ports": [
+          "clk_wiz_0/locked",
+          "i2s2_demo_top_0/locked",
+          "ila_0/probe3"
+        ]
+      },
+      "i2s2_demo_top_0_lrclk_adc": {
+        "ports": [
+          "i2s2_demo_top_0/lrclk_adc",
+          "lrclk_adc",
+          "ila_0/probe1"
+        ]
+      },
+      "i2s2_demo_top_0_lrclk_dac": {
+        "ports": [
+          "i2s2_demo_top_0/lrclk_dac",
+          "lrclk_dac"
+        ]
+      },
+      "i2s2_demo_top_0_mclk_adc": {
+        "ports": [
+          "i2s2_demo_top_0/mclk_adc",
+          "mclk_adc"
+        ]
+      },
+      "i2s2_demo_top_0_mclk_dac": {
+        "ports": [
+          "i2s2_demo_top_0/mclk_dac",
+          "mclk_dac"
+        ]
+      },
+      "i2s2_demo_top_0_sclk_adc": {
+        "ports": [
+          "i2s2_demo_top_0/sclk_adc",
+          "sclk_adc",
+          "ila_0/probe0"
+        ]
+      },
+      "i2s2_demo_top_0_sclk_dac": {
+        "ports": [
+          "i2s2_demo_top_0/sclk_dac",
+          "sclk_dac"
+        ]
+      },
+      "i2s2_demo_top_0_sd_dac": {
+        "ports": [
+          "i2s2_demo_top_0/sd_dac",
+          "sd_dac"
+        ]
+      },
+      "sd_adc_1": {
+        "ports": [
+          "sd_adc",
+          "i2s2_demo_top_0/sd_adc",
+          "ila_0/probe2"
         ]
       },
       "zynq_ultra_ps_e_0_pl_clk0": {
@@ -1331,7 +1517,8 @@
       "zynq_ultra_ps_e_0_pl_resetn0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_resetn0",
-          "clk_wiz_0/reset"
+          "i2s2_demo_top_0/resetn",
+          "clk_wiz_0/resetn"
         ]
       }
     }
