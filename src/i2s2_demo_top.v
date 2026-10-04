@@ -22,6 +22,9 @@ module i2s2_demo_top (
         .lrclk(lrclk),
         .rst_n_sync(rst_n_sync)
     );
+
+    // Send the input data straight to the output data
+    assign sdout = sdin && ~rst_n_sync  // Output data is 0 when in reset or clocking wizard is not locked
     
 
 endmodule
