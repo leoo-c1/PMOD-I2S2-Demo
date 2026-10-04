@@ -1,11 +1,20 @@
 # Xilinx design constraints (XDC) file for Kria K26 SOM - Rev 1
+
+# I2S Line Out Converter Master Clock
 set_property PACKAGE_PIN H12      [get_ports "som240_1_a17"] ;# PMOD Pin 1
+# I2S Line In Converter Master Clock
 set_property PACKAGE_PIN B10      [get_ports "som240_1_b20"] ;# PMOD Pin 2
+# I2S Line Out Converter Word Select
 set_property PACKAGE_PIN E10      [get_ports "som240_1_d20"] ;# PMOD Pin 3
+# I2S Line In Converter Word Select
 set_property PACKAGE_PIN E12      [get_ports "som240_1_b21"] ;# PMOD Pin 4
+# I2S Line Out Converter Serial Clock
 set_property PACKAGE_PIN D10      [get_ports "som240_1_d21"] ;# PMOD Pin 5
+# I2S Line In Converter Serial Clock
 set_property PACKAGE_PIN D11      [get_ports "som240_1_b22"] ;# PMOD Pin 6
+# I2S Line Out Converter Serial Data Input
 set_property PACKAGE_PIN C11      [get_ports "som240_1_d22"] ;# PMOD Pin 7
+# I2S Line In Converter Serial Data Output
 set_property PACKAGE_PIN B11      [get_ports "som240_1_c22"] ;# PMOD Pin 8
 # PMOD 9, 10 = GND
 # PMOD 11, 12 = 3.3V

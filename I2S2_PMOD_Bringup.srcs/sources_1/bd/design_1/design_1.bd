@@ -11,7 +11,8 @@
     },
     "design_tree": {
       "zynq_ultra_ps_e_0": "",
-      "clk_wiz_0": ""
+      "clk_wiz_0": "",
+      "oddr_0": ""
     },
     "components": {
       "zynq_ultra_ps_e_0": {
@@ -1302,9 +1303,23 @@
             "value": "1"
           }
         }
+      },
+      "oddr_0": {
+        "vlnv": "xilinx.com:ip:oddr:1.0",
+        "ip_revision": "5",
+        "xci_name": "design_1_oddr_0_0",
+        "xci_path": "ip\\design_1_oddr_0_0\\design_1_oddr_0_0.xci",
+        "inst_hier_path": "oddr_0",
+        "has_run_ip_tcl": "true"
       }
     },
     "nets": {
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "oddr_0/clk_in"
+        ]
+      },
       "zynq_ultra_ps_e_0_pl_clk0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_clk0",
