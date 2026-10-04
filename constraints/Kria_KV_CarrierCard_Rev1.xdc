@@ -11,7 +11,7 @@ set_property IOSTANDARD  MIPI_DPHY_DCI [get_ports "som240_1_a10"]; # Net name HP
 #set_property IOSTANDARD  LVCMOS12 [get_ports "som240_1_a13"]; # Net name HPA13_N_NC
 set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_a15"]; # Net name HDA09
 set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_a16"]; # Net name HDA10
-set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_a17"]; # Net name HDA11
+set_property IOSTANDARD  LVCMOS33 [get_ports "mclk_dac"]; # Net name HDA11
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_a19"]; # Net name VCCOEN_PS_M2C
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_a20"]; # Net name VCCOEN_PL_M2C
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_a22"]; # Net name JTAG_TMS_C2M
@@ -54,9 +54,9 @@ set_property IOSTANDARD  MIPI_DPHY_DCI [get_ports "som240_1_b11"]; # Net name HP
 set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_b16"]; # Net name HDA03
 set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_b17"]; # Net name HDA04
 #set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_b18"]; # Net name HDA05_NC
-set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_b20"]; # Net name HDA15
-set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_b21"]; # Net name HDA16_CC
-set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_b22"]; # Net name HDA17
+set_property IOSTANDARD  LVCMOS33 [get_ports "mclk_adc"]; # Net name HDA15
+set_property IOSTANDARD  LVCMOS33 [get_ports "lrclk_adc"]; # Net name HDA16_CC
+set_property IOSTANDARD  LVCMOS33 [get_ports "sclk_adc"]; # Net name HDA17
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_b24"]; # Net name PS_ERROR_OUT_M2C
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_b25"]; # Net name PS_ERROR_STATUS_M2C
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_b26"]; # Net name PWROFF_C2M_B
@@ -95,7 +95,7 @@ set_property IOSTANDARD  MIPI_DPHY_DCI [get_ports "som240_1_c13"]; # Net name HP
 #set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_c18"]; # Net name HDA06_NC
 #set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_c19"]; # Net name HDA07_NC
 #set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_c20"]; # Net name HDA08_CC_NC
-set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_c22"]; # Net name HDA18
+set_property IOSTANDARD  LVCMOS33 [get_ports "sd_adc"]; # Net name HDA18
 #set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_c23"]; # Net name HDA19_NC
 set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_c24"]; # Net name HDA20
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_c26"]; # Net name I2C_SCK
@@ -135,9 +135,9 @@ set_property IOSTANDARD  MIPI_DPHY_DCI [get_ports "som240_1_d11"]; # Net name HP
 set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_d16"]; # Net name HDA00_CC
 set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_d17"]; # Net name HDA01
 set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_d18"]; # Net name HDA02
-set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_d20"]; # Net name HDA12
-set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_d21"]; # Net name HDA13
-set_property IOSTANDARD  LVCMOS33 [get_ports "som240_1_d22"]; # Net name HDA14
+set_property IOSTANDARD  LVCMOS33 [get_ports "lrclk_dac"]; # Net name HDA12
+set_property IOSTANDARD  LVCMOS33 [get_ports "sclk_dac"]; # Net name HDA13
+set_property IOSTANDARD  LVCMOS33 [get_ports "sd_dac"]; # Net name HDA14
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_d24"]; # Net name PWRGD_FPD_M2C
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_d25"]; # Net name PWRGD_LPD_M2C
 #set_property IOSTANDARD  LVCMOSxx [get_ports "som240_1_d26"]; # Net name PWRGD_PL_M2C
@@ -170,14 +170,14 @@ set_property SLEW SLOW [get_ports "som240_1_d18"]; # Net name HDA02
 set_property SLEW SLOW [get_ports "som240_1_b16"]; # Net name HDA03
 set_property SLEW SLOW [get_ports "som240_1_b17"]; # Net name HDA04
 set_property SLEW SLOW [get_ports "som240_1_a15"]; # Net name HDA09
-set_property SLEW SLOW [get_ports "som240_1_a17"]; # Net name HDA11
-set_property SLEW SLOW [get_ports "som240_1_d20"]; # Net name HDA12
-set_property SLEW SLOW [get_ports "som240_1_d21"]; # Net name HDA13
-set_property SLEW SLOW [get_ports "som240_1_d22"]; # Net name HDA14
-set_property SLEW SLOW [get_ports "som240_1_b20"]; # Net name HDA15
-set_property SLEW SLOW [get_ports "som240_1_b21"]; # Net name HDA16_CC
-set_property SLEW SLOW [get_ports "som240_1_c22"]; # Net name HDA18
-set_property SLEW SLOW [get_ports "som240_1_b22"]; # Net name HDA17
+set_property SLEW SLOW [get_ports "mclk_dac"]; # Net name HDA11
+set_property SLEW SLOW [get_ports "lrclk_dac"]; # Net name HDA12
+set_property SLEW SLOW [get_ports "sclk_dac"]; # Net name HDA13
+set_property SLEW SLOW [get_ports "sd_dac"]; # Net name HDA14
+set_property SLEW SLOW [get_ports "mclk_adc"]; # Net name HDA15
+set_property SLEW SLOW [get_ports "lrclk_adc"]; # Net name HDA16_CC
+set_property SLEW SLOW [get_ports "sd_adc"]; # Net name HDA18
+set_property SLEW SLOW [get_ports "sclk_adc"]; # Net name HDA17
 set_property SLEW SLOW [get_ports "som240_1_c24"]; # Net name HDA20
 
 set_property DRIVE 4   [get_ports "som240_1_d16"]; # Net name HDA00_CC
@@ -186,14 +186,14 @@ set_property DRIVE 4   [get_ports "som240_1_d18"]; # Net name HDA02
 set_property DRIVE 4   [get_ports "som240_1_b16"]; # Net name HDA03
 set_property DRIVE 4   [get_ports "som240_1_b17"]; # Net name HDA04
 set_property DRIVE 4   [get_ports "som240_1_a15"]; # Net name HDA09
-set_property DRIVE 4   [get_ports "som240_1_a17"]; # Net name HDA11
-set_property DRIVE 4   [get_ports "som240_1_d20"]; # Net name HDA12
-set_property DRIVE 4   [get_ports "som240_1_d21"]; # Net name HDA13
-set_property DRIVE 4   [get_ports "som240_1_d22"]; # Net name HDA14
-set_property DRIVE 4   [get_ports "som240_1_b20"]; # Net name HDA15
-set_property DRIVE 4   [get_ports "som240_1_b21"]; # Net name HDA16_CC
-set_property DRIVE 4   [get_ports "som240_1_c22"]; # Net name HDA18
-set_property DRIVE 4   [get_ports "som240_1_b22"]; # Net name HDA17
+set_property DRIVE 4   [get_ports "mclk_dac"]; # Net name HDA11
+set_property DRIVE 4   [get_ports "lrclk_dac"]; # Net name HDA12
+set_property DRIVE 4   [get_ports "sclk_dac"]; # Net name HDA13
+set_property DRIVE 4   [get_ports "sd_dac"]; # Net name HDA14
+set_property DRIVE 4   [get_ports "mclk_adc"]; # Net name HDA15
+set_property DRIVE 4   [get_ports "lrclk_adc"]; # Net name HDA16_CC
+set_property DRIVE 4   [get_ports "sd_adc"]; # Net name HDA18
+set_property DRIVE 4   [get_ports "sclk_adc"]; # Net name HDA17
 set_property DRIVE 4   [get_ports "som240_1_c24"]; # Net name HDA20
 
 set_property DIFF_TERM_ADV TERM_100 [get_ports "som240_1_c4"];  # Net name HPA00_CC_N
@@ -224,4 +224,3 @@ set_property DIFF_TERM_ADV TERM_100 [get_ports "som240_1_b11"]; # Net name HPA11
 set_property DIFF_TERM_ADV TERM_100 [get_ports "som240_1_b10"]; # Net name HPA11_P
 set_property DIFF_TERM_ADV TERM_100 [get_ports "som240_1_a10"]; # Net name HPA12_N
 set_property DIFF_TERM_ADV TERM_100 [get_ports "som240_1_a9"];  # Net name HPA12_P
-

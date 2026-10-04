@@ -1,21 +1,21 @@
 # Xilinx design constraints (XDC) file for Kria K26 SOM - Rev 1
 
 # I2S Line Out Converter Master Clock
-set_property PACKAGE_PIN H12      [get_ports "som240_1_a17"] ;# Kria PMOD Pin 1, Digilent PMOD Pin 1
+set_property PACKAGE_PIN H12      [get_ports "mclk_dac"] ;# Kria PMOD Pin 1, Digilent PMOD Pin 1
 # I2S Line In Converter Master Clock
-set_property PACKAGE_PIN B10      [get_ports "som240_1_b20"] ;# PMOD Pin 2, Digilent PMOD Pin 7
+set_property PACKAGE_PIN B10      [get_ports "mclk_adc"] ;# PMOD Pin 2, Digilent PMOD Pin 7
 # I2S Line Out Converter Word Select
-set_property PACKAGE_PIN E10      [get_ports "som240_1_d20"] ;# PMOD Pin 3, Digilent PMOD Pin 2
+set_property PACKAGE_PIN E10      [get_ports "lrclk_dac"] ;# PMOD Pin 3, Digilent PMOD Pin 2
 # I2S Line In Converter Word Select
-set_property PACKAGE_PIN E12      [get_ports "som240_1_b21"] ;# PMOD Pin 4, Digilent PMOD Pin 8
+set_property PACKAGE_PIN E12      [get_ports "lrclk_adc"] ;# PMOD Pin 4, Digilent PMOD Pin 8
 # I2S Line Out Converter Serial Clock
-set_property PACKAGE_PIN D10      [get_ports "som240_1_d21"] ;# PMOD Pin 5, Digilent PMOD Pin 3
+set_property PACKAGE_PIN D10      [get_ports "sclk_dac"] ;# PMOD Pin 5, Digilent PMOD Pin 3
 # I2S Line In Converter Serial Clock
-set_property PACKAGE_PIN D11      [get_ports "som240_1_b22"] ;# PMOD Pin 6, Digilent PMOD Pin 9
+set_property PACKAGE_PIN D11      [get_ports "sclk_adc"] ;# PMOD Pin 6, Digilent PMOD Pin 9
 # I2S Line Out Converter Serial Data Input
-set_property PACKAGE_PIN C11      [get_ports "som240_1_d22"] ;# PMOD Pin 7, Digilent PMOD Pin 4
+set_property PACKAGE_PIN C11      [get_ports "sd_dac"] ;# PMOD Pin 7, Digilent PMOD Pin 4
 # I2S Line In Converter Serial Data Output
-set_property PACKAGE_PIN B11      [get_ports "som240_1_c22"] ;# PMOD Pin 8, Digilent PMOD Pin 10
+set_property PACKAGE_PIN B11      [get_ports "sd_adc"] ;# PMOD Pin 8, Digilent PMOD Pin 10
 # GND: Kria PMOD Pins 9 & 10, Digilent PMOD Pins 5 & 11
 # 3.3V: Kria PMOD Pins 11 &  12, Digilent PMOD Pins 6 & 12
 
