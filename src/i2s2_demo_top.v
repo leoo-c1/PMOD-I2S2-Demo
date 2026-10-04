@@ -8,8 +8,14 @@ module i2s2_demo_top (
 
     output wire mclk_adc,   // 22.5792 MHz master clock output to ADC
     output wire mclk_dac,   // 22.5792 MHz master clock output to DAC
-    output wire sclk,       // Serial clock toggling every 4 mclk periods (2.8224 MHz)
-    output wire lrclk,      // Left-right clock toggling every 32 sclk periods (44.1 kHz)
+
+    // Serial clock toggling every 4 mclk periods (2.8224 MHz)
+    output wire sclk_adc,   // To ADC
+    output wire sclk_dac,   // To DAC
+
+    // Left-right clock toggling every 32 sclk periods (44.1 kHz)
+    output wire lrclk_adc,  // To ADC
+    output wire lrclk_dac,  // To DAC
 
     output wire sd_dac      // Serial data to DAC
     );
@@ -20,10 +26,13 @@ module i2s2_demo_top (
         .mclk(mclk),
         .locked(locked),
         .resetn(resetn),
-        .sclk(sclk),
-        .lrclk(lrclk),
+        .sclk(sclk_adc),
+        .lrclk(lrclk_adc),
         .rst_n_sync(rst_n_sync)
     );
+
+    assign sclk_dac = sclk_adc;
+    assign lrclk_dac = lrclk_adc;
 
     // Send the input data straight to the output data
     assign sd_dac = sd_adc && rst_n_sync;   // Output data is 0 when in reset or clk wizard is not locked
