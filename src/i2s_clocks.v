@@ -1,5 +1,5 @@
 module i2s_clocks (
-    input wire mclk,        // 22.579 MHz master clock
+    input wire mclk,        // 22.5792 MHz master clock
     input wire locked,      // Indicates the clocking wizard output is stable
 
     input wire resetn,      // Active low reset
