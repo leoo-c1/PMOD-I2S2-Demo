@@ -22,6 +22,7 @@ usage_statistics_webtalk.*
 vivado_pid*.zip
 *.bit
 *.bin
+*.dmp
 *.dcp
 *.xsa
 *.vvp
