@@ -15,6 +15,28 @@ module line_in (
     output reg data_ready           // Pulses for one mclk cycle when 24-bit data is ready
    );
 
-    
+    reg [23:0] temp_data = 24'b0;   // Temporary vector to hold samples
+
+    always @ (posedge mclk) begin
+        if (!rst_n_sync) begin
+            left_data <= 24'b0;
+            right_data <= 24'b0;
+            data_ready <= 1'b0;
+        end else begin
+            data_ready <= 1'b0;
+            if (sclk_rise && sd_valid) begin    // On the rising edge of sclk, read valid serial data
+                temp_data[sd_count] <= sd_adc;  // Fill temporary vector over time
+
+                if ((sd_count == 24'b1) && !lrclk) begin    // Pulse data_ready on last bit of data
+                    data_ready <= 1'b1;
+                end else if (sd_count == 24'b0) begin
+                    if (lrclk)
+                        right_data <= {temp_data[23:1], sd_adc};
+                    else
+                        left_data <= {temp_data[23:1], sd_adc};
+                end
+            end
+        end
+    end
 
 endmodule
