@@ -8,7 +8,7 @@ module line_in (
     input wire sclk_rise,           // High for one mclk cycle starting from rising edge of sclk
     input wire lrclk,               // Left-right clock, 1 = right, 0 = left
 
-    input wirerst_n_sync,           // Low when either system is in reset or clocking wizard is not stable
+    input wire rst_n_sync,          // Low when either system is in reset or clocking wizard is not stable
 
     output reg [23:0] left_data,    // 24-bit data on the left channel
     output reg [23:0] right_data,   // 24-bit data on the right channel
