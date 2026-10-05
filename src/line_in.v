@@ -8,7 +8,7 @@ module line_in (
     input wire sclk_rise,           // High for one mclk cycle starting from rising edge of sclk
     input wire lrclk,               // Left-right clock, 1 = right, 0 = left
 
-    input rst_n_sync,               // Low when either system is in reset or clocking wizard is not stable
+    input wirerst_n_sync,           // Low when either system is in reset or clocking wizard is not stable
 
     output reg [23:0] left_data,    // 24-bit data on the left channel
     output reg [23:0] right_data,   // 24-bit data on the right channel
@@ -32,9 +32,10 @@ module line_in (
                 if (sd_count == 'b0) begin
                     if (lrclk)
                         right_data <= {temp_data[23:1], sd_adc};
-                    else
+                    else begin
                         left_data <= {temp_data[23:1], sd_adc};
                         data_ready <= 1'b1;     // Pulse data_ready on last bit of data
+                    end
                 end
             end
         end
