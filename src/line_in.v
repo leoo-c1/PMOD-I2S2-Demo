@@ -27,15 +27,15 @@ module line_in (
             data_ready <= 1'b0;
             if (sclk_rise && sd_valid) begin    // On the rising edge of sclk, read valid serial data
                 temp_data[sd_count] <= sd_adc;  // Fill temporary vector over time
-            end
             
-            // On final bit, update left or right data
-            if (sd_count == 'b0) begin
-                if (lrclk)
-                    right_data <= {temp_data[23:1], sd_adc};
-                else
-                    left_data <= {temp_data[23:1], sd_adc};
-                    data_ready <= 1'b1;     // Pulse data_ready on last bit of data
+                // On final bit, update left or right data
+                if (sd_count == 'b0) begin
+                    if (lrclk)
+                        right_data <= {temp_data[23:1], sd_adc};
+                    else
+                        left_data <= {temp_data[23:1], sd_adc};
+                        data_ready <= 1'b1;     // Pulse data_ready on last bit of data
+                end
             end
         end
     end
