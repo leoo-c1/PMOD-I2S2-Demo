@@ -61,9 +61,8 @@ module i2s_clocks (
                     // Invert lrclk
                     lrclk <= ~lrclk;
                     sclk_count <= 'b0;
-                end else begin
+                end else
                     sclk_count <= sclk_count + 1'b1;
-                end
             end
         end
     end
