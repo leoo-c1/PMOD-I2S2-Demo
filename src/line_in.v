@@ -5,7 +5,7 @@ module line_in (
     input wire [4:0] sd_count,      // 23 = MSB, 0 = LSB
     input wire sd_valid,            // High when sd_count is between 23 and 0, low during padding
 
-    input wire sclk_rise,           // High for one mclk cycle starting from rising edge of sclk
+    input wire sclk_rise,           // Pulses for one mclk cycle on rising edge of sclk
     input wire lrclk,               // Left-right clock, 1 = right, 0 = left
 
     input wire rst_n_sync,          // Low when either system is in reset or clocking wizard is not stable

@@ -5,8 +5,8 @@ module i2s_clocks (
     input wire resetn,          // Active low reset
 
     output reg sclk,            // Serial clock toggling every 4 mclk periods (2.8224 MHz)
-    output reg sclk_rise,       // High for one mclk cycle starting from rising edge of sclk
-    output reg sclk_fall,       // High for one mclk cycle starting from falling edge of sclk
+    output reg sclk_rise,       // Pulses for one mclk cycle on rising edge of sclk
+    output reg sclk_fall,       // Pulses for one mclk cycle on falling edge of sclk
     output reg lrclk,           // Left-right clock toggling every 32 sclk periods (44.1 kHz)
 
     output wire rst_n_sync,     // Low when either system is in reset or clocking wizard is not stable
