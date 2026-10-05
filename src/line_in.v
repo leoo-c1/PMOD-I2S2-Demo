@@ -10,9 +10,9 @@ module line_in (
     input wire sd_valid,            // High when sd_count is between 23 and 0, low during padding
 
     output reg [23:0] left_data,    // 24-bit data on the left channel
-    output reg left_ready,          // Pulses for one mclk cycle when left channel data is ready
+    output reg left_ready,          // Pulses for one mclk cycle when bit 0 in left channel is filled
     output reg [23:0] right_data,   // 24-bit data on the right channel
-    output reg right_ready          // Pulses for one mclk cycle when right channel data is ready
+    output reg right_ready          // Pulses for one mclk cycle when bit 0 in right channel is filled
    );
 
     reg [23:0] temp_data = 24'b0;   // Temporary vector to hold samples
