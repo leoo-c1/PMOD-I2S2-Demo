@@ -11,8 +11,9 @@ module line_in (
     input wire rst_n_sync,          // Low when either system is in reset or clocking wizard is not stable
 
     output reg [23:0] left_data,    // 24-bit data on the left channel
+    output reg left_ready,          // Pulses for one mclk cycle when left channel data is ready
     output reg [23:0] right_data,   // 24-bit data on the right channel
-    output reg data_ready           // Pulses for one mclk cycle when 24-bit data is ready
+    output reg right_ready          // Pulses for one mclk cycle when right channel data is ready
    );
 
     reg [23:0] temp_data = 24'b0;   // Temporary vector to hold samples
@@ -32,9 +33,10 @@ module line_in (
                 if (sd_count == 'b0) begin
                     if (lrclk)
                         right_data <= {temp_data[23:1], sd_adc};
+                        right_ready <= 1'b1;
                     else begin
                         left_data <= {temp_data[23:1], sd_adc};
-                        data_ready <= 1'b1;     // Pulse data_ready on last bit of data
+                        left_ready <= 1'b1;
                     end
                 end
             end
