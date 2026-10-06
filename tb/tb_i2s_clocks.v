@@ -11,7 +11,6 @@ module tb_i2s_clocks;
     wire sclk_pre_fall;     // Pulses for one mclk cycle before falling edge of sclk
 
     wire lrclk;             // Left-right clock toggling every 32 sclk periods (44.1 kHz)
-    wire lrclk_pre_change;  // Pulses for the mclk cycle before lrclk inverts
 
     wire rst_n_sync;        // Low when either system is in reset or clocking wizard is not stable
 
@@ -22,8 +21,9 @@ module tb_i2s_clocks;
         .mclk(mclk),
         .locked(locked),
         .resetn(resetn),
-        .sclk(sclk), .sclk_pre_rise(sclk_pre_rise), .sclk_pre_fall(sclk_pre_fall),
-        .lrclk(lrclk), .lrclk_pre_change(lrclk_pre_change),
+        .sclk(sclk),
+        .sclk_pre_rise(sclk_pre_rise), .sclk_pre_fall(sclk_pre_fall),
+        .lrclk(lrclk),
         .rst_n_sync(rst_n_sync),
         .sd_count(sd_count), .sd_valid(sd_valid)
     );
