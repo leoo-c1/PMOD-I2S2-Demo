@@ -35,7 +35,7 @@ module i2s_clocks (
     assign sd_valid = (sd_count >= 5'd0) && (sd_count <= 5'd23);
 
     // The mclck cycle just before lrclk changes is when sd_count is 30, we are on the 3rd mclck cycle and sclk is high
-    assign lrclk_pre_change = (sd_count == 5'd30) && (mclk_count == 2'd2) && (sclk);
+    assign lrclk_pre_change = (sd_count == 5'd30) && (mclk_count == 2'd3) && (sclk);
 
     always @ (posedge mclk) begin
         rst_n_sync_1 <= rst_n_async;
@@ -62,7 +62,7 @@ module i2s_clocks (
                 mclk_count <= 2'b0;
 
                 // Check if 32 sclk periods have occurred for lrclk to be inverted
-                if (sclk_count >= 5'd31) begin
+                if ((sclk_count >= 5'd31) && sclk) begin
                     // Invert lrclk
                     lrclk <= ~lrclk;
                     sclk_count <= 5'b0;
