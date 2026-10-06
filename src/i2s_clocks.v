@@ -9,7 +9,7 @@ module i2s_clocks (
     output reg sclk_fall,           // Pulses for one mclk cycle on falling edge of sclk
 
     output reg lrclk,               // Left-right clock toggling every 32 sclk periods (44.1 kHz)
-    output reg lrclk_pre_change,    // Pulses for the mclk cycle before lrclk inverts
+    output wire lrclk_pre_change,   // Pulses for the mclk cycle before lrclk inverts
 
     output wire rst_n_sync,         // Low when either system is in reset or clocking wizard is not stable
 
@@ -33,6 +33,9 @@ module i2s_clocks (
 
     // Generate sd_valid
     assign sd_valid = (sd_count >= 5'd0) && (sd_count <= 5'd23);
+
+    // The mclck cycle just before lrclk changes is when sd_count is 30, we are on the 3rd mclck cycle and sclk is high
+    assign lrclk_pre_change = (sd_count == 5'd30) && (mclk_count == 2'd2) && (sclk);
 
     always @ (posedge mclk) begin
         rst_n_sync_1 <= rst_n_async;
