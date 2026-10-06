@@ -18,8 +18,6 @@ module tb_i2s_clocks;
     wire [4:0] sd_count;    // 0 = MSB, 23 = LSB (24-31 is padding)
     wire sd_valid;          // High when sd_count is between 0 and 23, low during padding
 
-    wire [4:0] sclk_count;
-
     i2s_clocks clock_test (
         .mclk(mclk),
         .locked(locked),
