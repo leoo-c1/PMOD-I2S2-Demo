@@ -1,0 +1,136 @@
+{
+    "displayedSignals":  [
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.mclk",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "mclk",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.locked",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "locked",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.resetn",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "resetn",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.sclk",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "sclk",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.sclk_pre_rise",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "sclk_pre_rise",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.sclk_pre_fall",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "sclk_pre_fall",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.lrclk",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "lrclk",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.lrclk_pre_change",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "lrclk_pre_change",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.rst_n_sync",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "rst_n_sync",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.sd_count",
+                                 "numberFormat":  "hexadecimal",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "sd_count",
+                                 "renderType":  "multiBit",
+                                 "valueLinkEnable":  false
+                             },
+                             {
+                                 "dataType":  "netlist-variable",
+                                 "name":  "tb_i2s_clocks.sd_valid",
+                                 "numberFormat":  "binary",
+                                 "colorIndex":  0,
+                                 "rowHeight":  1,
+                                 "verticalScale":  1,
+                                 "nameType":  "signalName",
+                                 "customName":  "sd_valid",
+                                 "renderType":  "binary",
+                                 "valueLinkEnable":  false
+                             }
+                         ]
+}
