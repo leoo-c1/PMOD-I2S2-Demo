@@ -1,18 +1,20 @@
 module i2s_clocks (
-    input wire mclk,            // 22.5792 MHz master clock
-    input wire locked,          // Indicates the clocking wizard output is stable
+    input wire mclk,                // 22.5792 MHz master clock
+    input wire locked,              // Indicates the clocking wizard output is stable
 
-    input wire resetn,          // Active low reset
+    input wire resetn,              // Active low reset
 
-    output reg sclk,            // Serial clock toggling every 4 mclk periods (2.8224 MHz)
-    output reg sclk_rise,       // Pulses for one mclk cycle on rising edge of sclk
-    output reg sclk_fall,       // Pulses for one mclk cycle on falling edge of sclk
-    output reg lrclk,           // Left-right clock toggling every 32 sclk periods (44.1 kHz)
+    output reg sclk,                // Serial clock toggling every 4 mclk periods (2.8224 MHz)
+    output reg sclk_rise,           // Pulses for one mclk cycle on rising edge of sclk
+    output reg sclk_fall,           // Pulses for one mclk cycle on falling edge of sclk
 
-    output wire rst_n_sync,     // Low when either system is in reset or clocking wizard is not stable
+    output reg lrclk,               // Left-right clock toggling every 32 sclk periods (44.1 kHz)
+    output reg lrclk_pre_change,    // Pulses for the mclk cycle before lrclk inverts
 
-    output wire [4:0] sd_count, // 0 = MSB, 23 = LSB (24-31 is padding)
-    output wire sd_valid        // High when sd_count is between 0 and 23, low during padding
+    output wire rst_n_sync,         // Low when either system is in reset or clocking wizard is not stable
+
+    output wire [4:0] sd_count,     // 0 = MSB, 23 = LSB (24-31 is padding)
+    output wire sd_valid            // High when sd_count is between 0 and 23, low during padding
     );
 
     reg [1:0] mclk_count = 2'b0;    // Counts 4 mclk periods to generate serial clock
