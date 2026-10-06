@@ -5,8 +5,8 @@ module i2s_clocks (
     input wire resetn,              // Active low reset
 
     output reg sclk,                // Serial clock toggling every 4 mclk periods (2.8224 MHz)
-    output reg sclk_rise,           // Pulses for one mclk cycle on rising edge of sclk
-    output reg sclk_fall,           // Pulses for one mclk cycle on falling edge of sclk
+    output wire sclk_pre_rise,      // Pulses for one mclk cycle before rising edge of sclk
+    output wire sclk_pre_fall,      // Pulses for one mclk cycle before falling edge of sclk
 
     output reg lrclk,               // Left-right clock toggling every 32 sclk periods (44.1 kHz)
     output wire lrclk_pre_change,   // Pulses for the mclk cycle before lrclk inverts
@@ -28,14 +28,17 @@ module i2s_clocks (
     assign rst_n_async = resetn && locked;
     assign rst_n_sync = rst_n_sync_2;
 
-    // Generate sd_count, it should just be sclk_count delayed by 1 clock cycle
+    // Generate sd_count, it should just be sclk_count delayed by 1 sclk cycle
     assign sd_count = sclk_count - 1'b1;
 
     // Generate sd_valid
     assign sd_valid = (sd_count >= 5'd0) && (sd_count <= 5'd23);
 
-    // The mclck cycle just before lrclk changes is when sd_count is 30, we are on the 3rd mclck cycle and sclk is high
+    // The mclk cycle just before lrclk changes is when sd_count is 30, we are on the 4th mclck cycle and sclk is high
     assign lrclk_pre_change = (sd_count == 5'd30) && (mclk_count == 2'd3) && (sclk);
+
+    assign sclk_pre_rise = (mclk_count == 2'd3) && ~sclk;
+    assign sclk_pre_fall = (mclk_count == 2'd3) && sclk;
 
     always @ (posedge mclk) begin
         rst_n_sync_1 <= rst_n_async;
@@ -45,20 +48,14 @@ module i2s_clocks (
             mclk_count <= 2'b0;
             sclk_count <= 5'b0;
             sclk <= 1'b0;
-            sclk_rise <= 1'b0;
-            sclk_fall <= 1'b0;
             lrclk <= 1'b0;
         end else begin
             if (mclk_count < 'd3) begin
                 mclk_count <= mclk_count + 1'b1;
-                sclk_rise <= 1'b0;
-                sclk_fall <= 1'b0;
 
             // 4 periods of mclk have passed so invert sclk
             end else begin
                 sclk <= ~sclk;
-                sclk_rise <= (sclk == 1'b0) ? 1'b1 : 1'b0;
-                sclk_fall <= (sclk == 1'b1) ? 1'b1 : 1'b0;
                 mclk_count <= 2'b0;
 
                 // Check if 32 sclk periods have occurred for lrclk to be inverted

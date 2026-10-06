@@ -7,8 +7,8 @@ module tb_i2s_clocks;
     reg resetn;             // Active low reset
 
     wire sclk;              // Serial clock toggling every 4 mclk periods (2.8224 MHz)
-    wire sclk_rise;         // Pulses for one mclk cycle on rising edge of sclk
-    wire sclk_fall;         // Pulses for one mclk cycle on falling edge of sclk
+    wire sclk_pre_rise;     // Pulses for one mclk cycle before rising edge of sclk
+    wire sclk_pre_fall;     // Pulses for one mclk cycle before falling edge of sclk
 
     wire lrclk;             // Left-right clock toggling every 32 sclk periods (44.1 kHz)
     wire lrclk_pre_change;  // Pulses for the mclk cycle before lrclk inverts
@@ -22,7 +22,7 @@ module tb_i2s_clocks;
         .mclk(mclk),
         .locked(locked),
         .resetn(resetn),
-        .sclk(sclk), .sclk_rise(sclk_rise), .sclk_fall(sclk_fall),
+        .sclk(sclk), .sclk_pre_rise(sclk_pre_rise), .sclk_pre_fall(sclk_pre_fall),
         .lrclk(lrclk), .lrclk_pre_change(lrclk_pre_change),
         .rst_n_sync(rst_n_sync),
         .sd_count(sd_count), .sd_valid(sd_valid)

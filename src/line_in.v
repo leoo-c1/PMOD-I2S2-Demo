@@ -1,6 +1,6 @@
 module line_in (
     input wire mclk,                // 22.5792 MHz master clock
-    input wire sclk_rise,           // Pulses for one mclk cycle on rising edge of sclk
+    input wire sclk_pre_rise,       // Pulses for one mclk cycle before rising edge of sclk
     input wire lrclk,               // Left-right clock, 1 = right, 0 = left
 
     input wire rst_n_sync,          // Low when either system is in reset or clocking wizard is not stable
@@ -27,7 +27,7 @@ module line_in (
         end else begin
             last_left <= 1'b0;
             last_right <= 1'b0;
-            if (sclk_rise && sd_valid) begin    // On the rising edge of sclk, read valid serial data
+            if (sclk_pre_rise && sd_valid) begin    // On the rising edge of sclk
                 temp_data[5'd23 - sd_count] <= sd_adc;  // Fill temporary vector over time
             
                 // On final bit, update left or right data
