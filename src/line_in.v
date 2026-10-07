@@ -10,7 +10,7 @@ module line_in (
     input wire sd_valid,            // High when sd_count is between 23 and 0, low during padding
 
     output reg [23:0] left_data,    // 24-bit data on the left channel
-    output reg [23:0] right_data,   // 24-bit data on the right channel
+    output reg [23:0] right_data    // 24-bit data on the right channel
    );
 
     reg [23:0] temp_data = 24'b0;   // Temporary vector to hold samples
@@ -25,7 +25,7 @@ module line_in (
                 temp_data[5'd23 - sd_count] <= sd_adc;  // Fill temporary vector over time
             
                 // On final bit, update left or right data
-                if (sd_count == 'b23) begin
+                if (sd_count == 'd23) begin
                     if (lrclk)
                         right_data <= {temp_data[23:1], sd_adc};
                     else begin
