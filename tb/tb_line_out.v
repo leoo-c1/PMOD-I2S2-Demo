@@ -50,6 +50,8 @@ module tb_line_out;
         resetn = 0;
         locked = 0;
         mclk = 0;
+        left_data = 0;
+        right_data = 0;
 
         #50;
         resetn = 1;
@@ -58,8 +60,13 @@ module tb_line_out;
 
         @ (posedge lrclk);
         receive_data(24'hDADBAD, 1);
+        @ (negedge lrclk);
         receive_data(24'h1A2B3C, 0);
-        #1000;
+        @ (posedge lrclk);
+        receive_data(24'hFF00FF, 1);
+        @ (negedge lrclk);
+        receive_data(24'h00FF00, 0);
+        #100000;
 
         $finish;
     end
