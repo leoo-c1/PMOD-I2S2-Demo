@@ -22,21 +22,54 @@ module i2s2_demo_top (
 
     wire rst_n_sync;
 
+    wire sclk_pre_fall;
+    wire sclk_pre_rise;
+
+    wire lrclk;
+
+    wire sd_valid;
+    wire [4:0] sd_count;
+
+    wire [23:0] left_data;
+    wire [23:0] right_data;
+
     i2s_clocks i2s_clocks (
         .mclk(mclk),
         .locked(locked),
         .resetn(resetn),
         .sclk(sclk_adc),
-        .lrclk(lrclk_adc),
-        .rst_n_sync(rst_n_sync)
+        .sclk_pre_rise(sclk_pre_rise), .sclk_pre_fall(sclk_pre_fall),
+        .lrclk(lrclk),
+        .rst_n_sync(rst_n_sync),
+        .sd_count(sd_count), .sd_valid(sd_valid)
     );
 
     assign sclk_dac = sclk_adc;
-    assign lrclk_dac = lrclk_adc;
+    assign lrclk_adc = lrclk;
+    assign lrclk_dac = lrclk;
 
-    // Send the input data straight to the output data
-    assign sd_dac = sd_adc && rst_n_sync;   // Output data is 0 when in reset or clk wizard is not locked
+    // Input data from ADC
+    line_in line_in (
+        .mclk(mclk),
+        .sclk_pre_rise(sclk_pre_rise),
+        .lrclk(lrclk_adc),
+        .rst_n_sync(rst_n_sync),
+        .sd_adc(sd_adc),
+        .sd_count(sd_count), .sd_valid,
+        .left_data(left_data), .right_data(right_data)
+    );
 
+    // Route input data straight to output DAC
+    // Output data to DAC
+    line_out line_out (
+        .mclk(mclk),
+        .sclk_pre_fall(sclk_pre_fall),
+        .lrclk(lrclk_dac),
+        .rst_n_sync(rst_n_sync),
+        .left_data(left_data), .right_data(right_data),
+        .sd_count(sd_count),
+        .sd_dac(sd_dac)
+    );
     
    // ODDRE1: Dedicated Double Data Rate (DDR) Output Register
    //         Zynq UltraScale+ MPSoC/RFSoC

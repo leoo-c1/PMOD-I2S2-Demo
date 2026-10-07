@@ -18,11 +18,17 @@ module line_out (
             sd_dac <= 1'b0;
         end else begin
             if (sclk_pre_fall) begin
-                if ((sd_count == 5'd31) || ((sd_count >= 5'b0) && (sd_count <= 5'd22))) begin
+                if (sd_count == 5'd31) begin
                     if (lrclk)
-                        sd_dac <= right_data[5'd30 - sd_count];
+                        sd_dac <= right_data[23];
                     else
-                        sd_dac <= left_data[5'd30 - sd_count];
+                        sd_dac <= left_data[23];
+                end else if ((sd_count >= 5'b0) && (sd_count <= 5'd22)) begin
+                    if (lrclk)
+                        // sd31: id23, sd0: id22, 1: 21, 2: 20
+                        sd_dac <= right_data[5'd22 - sd_count];
+                    else
+                        sd_dac <= left_data[5'd22 - sd_count];
                 end else begin
                     // When receiving padding, put 0s on dac
                     sd_dac <= 1'b0;
