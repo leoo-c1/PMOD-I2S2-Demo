@@ -5,7 +5,7 @@
     "cell_name": "zynq_ultra_ps_e_0",
     "component_reference": "xilinx.com:ip:zynq_ultra_ps_e:3.5",
     "ip_revision": "8",
-    "gen_directory": "../../../../../../I2S2_PMOD_Bringup.gen/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0",
+    "gen_directory": "../../../../../../I2S2_PMOD_Demo.gen/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0",
     "parameters": {
       "component_parameters": {
         "PSU_VALUE_SILVERSION": [ { "value": "3", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -1766,7 +1766,7 @@
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
         "IPREVISION": [ { "value": "8" } ],
         "MANAGED": [ { "value": "TRUE" } ],
-        "OUTPUTDIR": [ { "value": "../../../../../../I2S2_PMOD_Bringup.gen/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../I2S2_PMOD_Demo.gen/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_0" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "../../ipshared" } ],
         "SWVERSION": [ { "value": "2025.2" } ],

@@ -25,7 +25,6 @@ module line_out (
                         sd_dac <= left_data[23];
                 end else if ((sd_count >= 5'b0) && (sd_count <= 5'd22)) begin
                     if (lrclk)
-                        // sd31: id23, sd0: id22, 1: 21, 2: 20
                         sd_dac <= right_data[5'd22 - sd_count];
                     else
                         sd_dac <= left_data[5'd22 - sd_count];

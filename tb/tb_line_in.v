@@ -62,7 +62,7 @@ module tb_line_in;
         send_sample(24'hABCDEF);    // Right channel frame
         @ (negedge lrclk);
         send_sample(24'h123456);    // Left channel frame
-        #200;
+        #1000;
 
         $finish;
     end
