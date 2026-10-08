@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="71" Path="C:/Users/chinc/FPGA_Projects/Personal_Projects/I2S2_PMOD_Bringup/vivado/I2S2_PMOD_Demo.xpr">
+<Project Product="Vivado" Version="7" Minor="71" Path="C:/Users/chinc/FPGA_Projects/Personal_Projects/I2S2_PMOD_Demo/vivado/I2S2_PMOD_Demo.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="998337627bc743259ab5f6ee0898a079"/>

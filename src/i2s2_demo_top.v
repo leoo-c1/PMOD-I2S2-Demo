@@ -59,7 +59,6 @@ module i2s2_demo_top (
         .left_data(left_data), .right_data(right_data)
     );
 
-    // Route input data straight to output DAC
     // Output data to DAC
     line_out line_out (
         .mclk(mclk),
