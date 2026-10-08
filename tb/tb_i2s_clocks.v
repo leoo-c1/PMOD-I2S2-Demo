@@ -33,7 +33,7 @@ module tb_i2s_clocks;
     end
 
     initial begin
-        $dumpfile("tb.vcd");
+        $dumpfile("tb_i2s_clocks.vcd");
         $dumpvars(0, tb_i2s_clocks);
 
         resetn = 0;
