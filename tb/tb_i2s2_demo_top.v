@@ -21,35 +21,14 @@ module tb_i2s2_demo_top;
 
     wire sd_dac;     // Serial data to DAC
 
-    // Interconnects
-    reg sclk;
-    reg sclk_pre_rise;
-    reg sclk_pre_fall;
-    reg lrclk;
-    reg rst_n_sync;
-    reg [4:0] sd_count;
-    reg sd_valid;
-    reg [23:0] left_data;
-    reg [23:0] right_data;
-
-    i2s_clocks clock_test (
+    i2s2_demo_top top_level_test (
         .mclk(mclk),
         .locked(locked),
         .resetn(resetn),
-        .sclk(sclk),
-        .sclk_pre_rise(), .sclk_pre_fall(sclk_pre_fall),
-        .lrclk(lrclk),
-        .rst_n_sync(rst_n_sync),
-        .sd_count(sd_count), .sd_valid()
-    );
-
-    line_out output_test (
-        .mclk(mclk),
-        .sclk_pre_fall(sclk_pre_fall),
-        .lrclk(lrclk),
-        .rst_n_sync(rst_n_sync),
-        .left_data(left_data), .right_data(right_data),
-        .sd_count(sd_count),
+        .sd_adc(sd_adc),
+        .mclk_adc(mclk_adc), .mclk_dac(mclk_dac),
+        .sclk_adc(sclk_adc), .sclk_dac(sclk_dac),
+        .lrclk_adc(lrclk_adc), .lrclk_dac(lrclk_dac),
         .sd_dac(sd_dac)
     );
 
@@ -72,13 +51,13 @@ module tb_i2s2_demo_top;
 
         #20; locked = 1;
 
-        @ (posedge lrclk);
+        @ (posedge lrclk_adc);
         send_sample(24'hABCDEF);    // Right channel frame
-        @ (negedge lrclk);
+        @ (negedge lrclk_adc);
         send_sample(24'h123456);    // Left channel frame
-        @ (posedge lrclk);
+        @ (posedge lrclk_adc);
         send_sample(24'hFF00FF);    // Right channel frame
-        @ (negedge lrclk);
+        @ (negedge lrclk_adc);
         send_sample(24'h00FF00);    // Left channel frame
         #50000;
 
@@ -88,10 +67,10 @@ module tb_i2s2_demo_top;
     task send_sample(input [23:0] sample);
         integer i;
         begin
-            @(negedge sclk);
+            @(negedge sclk_adc);
             for (i = 23; i >= 0; i = i - 1) begin
                 sd_adc = sample[i];
-                @(negedge sclk);
+                @(negedge sclk_adc);
             end
             sd_adc = 1'b0;  // Send padding
         end
