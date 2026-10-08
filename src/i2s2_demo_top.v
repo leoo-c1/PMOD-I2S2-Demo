@@ -55,7 +55,7 @@ module i2s2_demo_top (
         .lrclk(lrclk_adc),
         .rst_n_sync(rst_n_sync),
         .sd_adc(sd_adc),
-        .sd_count(sd_count), .sd_valid,
+        .sd_count(sd_count), .sd_valid(sd_valid),
         .left_data(left_data), .right_data(right_data)
     );
 
