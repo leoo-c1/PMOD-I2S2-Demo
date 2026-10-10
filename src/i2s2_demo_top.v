@@ -1,23 +1,26 @@
 module i2s2_demo_top (
-    input wire mclk,        // 22.5792 MHz master clock
-    input wire locked,      // Indicates the clocking wizard output is stable
+    input wire mclk,          // 22.5792 MHz master clock
+    input wire locked,        // Indicates the clocking wizard output is stable
 
-    input wire resetn,      // Active low reset
+    input wire resetn,        // Active low reset
 
-    input wire sd_adc,      // Serial data from ADC
+    input wire sd_adc,        // Serial data from ADC
 
-    output wire mclk_adc,   // 22.5792 MHz master clock output to ADC
-    output wire mclk_dac,   // 22.5792 MHz master clock output to DAC
+    output wire mclk_adc,     // 22.5792 MHz master clock output to ADC
+    output wire mclk_dac,     // 22.5792 MHz master clock output to DAC
 
     // Serial clock toggling every 4 mclk periods (2.8224 MHz)
-    output wire sclk_adc,   // To ADC
-    output wire sclk_dac,   // To DAC
+    output wire sclk_adc,     // To ADC
+    output wire sclk_dac,     // To DAC
 
     // Left-right clock toggling every 32 sclk periods (44.1 kHz)
-    output wire lrclk_adc,  // To ADC
-    output wire lrclk_dac,  // To DAC
+    output wire lrclk_adc,    // To ADC
+    output wire lrclk_dac,    // To DAC
 
-    output wire sd_dac      // Serial data to DAC
+    output wire sd_dac,       // Serial data to DAC
+
+    output wire dbg_left,     // Left channel signal for ILA probe
+    output wire dbg_right     // Right channel signal for ILA probe
     );
 
     wire rst_n_sync;
@@ -47,6 +50,8 @@ module i2s2_demo_top (
     assign sclk_dac = sclk_adc;
     assign lrclk_adc = lrclk;
     assign lrclk_dac = lrclk;
+    assign dbg_left = left_data;
+    assign dbg_right = right_data;
 
     // Input data from ADC
     line_in line_in (
