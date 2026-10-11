@@ -1490,6 +1490,16 @@
           },
           "sd_dac": {
             "direction": "O"
+          },
+          "dbg_left": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          },
+          "dbg_right": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
           }
         }
       },
@@ -1504,11 +1514,14 @@
           "C_DATA_DEPTH": {
             "value": "2048"
           },
+          "C_EN_STRG_QUAL": {
+            "value": "1"
+          },
           "C_MONITOR_TYPE": {
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "4"
+            "value": "7"
           }
         }
       }
@@ -1517,15 +1530,27 @@
       "clk_wiz_0_clk_out1": {
         "ports": [
           "clk_wiz_0/clk_out1",
-          "i2s2_demo_top_0/mclk",
-          "ila_0/clk"
+          "ila_0/clk",
+          "i2s2_demo_top_0/mclk"
         ]
       },
       "clk_wiz_0_locked": {
         "ports": [
           "clk_wiz_0/locked",
-          "i2s2_demo_top_0/locked",
-          "ila_0/probe3"
+          "ila_0/probe3",
+          "i2s2_demo_top_0/locked"
+        ]
+      },
+      "i2s2_demo_top_0_dbg_left": {
+        "ports": [
+          "i2s2_demo_top_0/dbg_left",
+          "ila_0/probe5"
+        ]
+      },
+      "i2s2_demo_top_0_dbg_right": {
+        "ports": [
+          "i2s2_demo_top_0/dbg_right",
+          "ila_0/probe6"
         ]
       },
       "i2s2_demo_top_0_lrclk_adc": {
@@ -1569,14 +1594,15 @@
       "i2s2_demo_top_0_sd_dac": {
         "ports": [
           "i2s2_demo_top_0/sd_dac",
-          "sd_dac"
+          "sd_dac",
+          "ila_0/probe4"
         ]
       },
       "sd_adc_1": {
         "ports": [
           "sd_adc",
-          "i2s2_demo_top_0/sd_adc",
-          "ila_0/probe2"
+          "ila_0/probe2",
+          "i2s2_demo_top_0/sd_adc"
         ]
       },
       "zynq_ultra_ps_e_0_pl_clk0": {
@@ -1590,8 +1616,8 @@
       "zynq_ultra_ps_e_0_pl_resetn0": {
         "ports": [
           "zynq_ultra_ps_e_0/pl_resetn0",
-          "i2s2_demo_top_0/resetn",
-          "clk_wiz_0/resetn"
+          "clk_wiz_0/resetn",
+          "i2s2_demo_top_0/resetn"
         ]
       }
     }

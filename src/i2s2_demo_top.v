@@ -19,8 +19,8 @@ module i2s2_demo_top (
 
     output wire sd_dac,       // Serial data to DAC
 
-    output wire dbg_left,     // Left channel signal for ILA probe
-    output wire dbg_right     // Right channel signal for ILA probe
+    output wire [23:0] dbg_left,     // Left channel signal for ILA probe
+    output wire [23:0] dbg_right     // Right channel signal for ILA probe
     );
 
     wire rst_n_sync;

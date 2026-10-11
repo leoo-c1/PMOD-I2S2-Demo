@@ -1,36 +1,38 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.770345",
-   "Default View_TopLeft":"-92,-68",
+   "Default View_ScaleFactor":"0.550633",
+   "Default View_TopLeft":"-93,-142",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
 #  -string -flagsOSRD
 preplace port port-id_sd_adc -pg 1 -lvl 0 -x 0 -y 300 -defaultsOSRD
-preplace port port-id_sd_dac -pg 1 -lvl 5 -x 1250 -y 350 -defaultsOSRD
-preplace port port-id_lrclk_dac -pg 1 -lvl 5 -x 1250 -y 320 -defaultsOSRD
-preplace port port-id_lrclk_adc -pg 1 -lvl 5 -x 1250 -y 290 -defaultsOSRD
-preplace port port-id_sclk_dac -pg 1 -lvl 5 -x 1250 -y 260 -defaultsOSRD
-preplace port port-id_sclk_adc -pg 1 -lvl 5 -x 1250 -y 230 -defaultsOSRD
-preplace port port-id_mclk_dac -pg 1 -lvl 5 -x 1250 -y 200 -defaultsOSRD
-preplace port port-id_mclk_adc -pg 1 -lvl 5 -x 1250 -y 170 -defaultsOSRD
+preplace port port-id_sd_dac -pg 1 -lvl 5 -x 1380 -y 350 -defaultsOSRD
+preplace port port-id_lrclk_dac -pg 1 -lvl 5 -x 1380 -y 320 -defaultsOSRD
+preplace port port-id_lrclk_adc -pg 1 -lvl 5 -x 1380 -y 290 -defaultsOSRD
+preplace port port-id_sclk_dac -pg 1 -lvl 5 -x 1380 -y 260 -defaultsOSRD
+preplace port port-id_sclk_adc -pg 1 -lvl 5 -x 1380 -y 230 -defaultsOSRD
+preplace port port-id_mclk_dac -pg 1 -lvl 5 -x 1380 -y 200 -defaultsOSRD
+preplace port port-id_mclk_adc -pg 1 -lvl 5 -x 1380 -y 170 -defaultsOSRD
 preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x 310 -y 190 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 700 -y 200 -defaultsOSRD
-preplace inst i2s2_demo_top_0 -pg 1 -lvl 3 -x 910 -y 260 -defaultsOSRD
-preplace inst ila_0 -pg 1 -lvl 4 -x 1130 -y 100 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 710 -y 200 -defaultsOSRD
+preplace inst i2s2_demo_top_0 -pg 1 -lvl 3 -x 950 -y 260 -defaultsOSRD
+preplace inst ila_0 -pg 1 -lvl 4 -x 1250 -y 100 -defaultsOSRD
+preplace netloc clk_wiz_0_clk_out1 1 2 2 810 30 NJ
+preplace netloc clk_wiz_0_locked 1 2 2 820 110 NJ
+preplace netloc i2s2_demo_top_0_lrclk_adc 1 3 2 1080 290 NJ
+preplace netloc i2s2_demo_top_0_lrclk_dac 1 3 2 1110J 320 NJ
+preplace netloc i2s2_demo_top_0_mclk_adc 1 3 2 1160J 230 1340J
+preplace netloc i2s2_demo_top_0_mclk_dac 1 3 2 1130J 240 1350J
+preplace netloc i2s2_demo_top_0_sclk_adc 1 3 2 1150 250 1360J
+preplace netloc i2s2_demo_top_0_sclk_dac 1 3 2 1090J 260 NJ
+preplace netloc i2s2_demo_top_0_sd_dac 1 3 2 1120J 350 NJ
+preplace netloc sd_adc_1 1 0 4 NJ 300 NJ 300 800 90 NJ
 preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 2 20 290 600
-preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 2 610 270 NJ
-preplace netloc clk_wiz_0_locked 1 2 2 800 140 NJ
-preplace netloc clk_wiz_0_clk_out1 1 2 2 790 60 NJ
-preplace netloc i2s2_demo_top_0_sd_dac 1 3 2 NJ 320 1220J
-preplace netloc i2s2_demo_top_0_lrclk_dac 1 3 2 NJ 300 1230J
-preplace netloc i2s2_demo_top_0_lrclk_adc 1 3 2 1030 290 NJ
-preplace netloc i2s2_demo_top_0_sclk_dac 1 3 2 NJ 260 NJ
-preplace netloc i2s2_demo_top_0_sclk_adc 1 3 2 1020 230 NJ
-preplace netloc i2s2_demo_top_0_mclk_dac 1 3 2 NJ 220 1230J
-preplace netloc i2s2_demo_top_0_mclk_adc 1 3 2 NJ 200 1220J
-preplace netloc sd_adc_1 1 0 4 NJ 300 NJ 300 790 380 1040J
-levelinfo -pg 1 0 310 700 910 1130 1250
-pagesize -pg 1 -db -bbox -sgen -100 0 1360 390
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 1 2 620 270 NJ
+preplace netloc i2s2_demo_top_0_dbg_left 1 3 1 1100 150n
+preplace netloc i2s2_demo_top_0_dbg_right 1 3 1 1140 170n
+levelinfo -pg 1 0 310 710 950 1250 1380
+pagesize -pg 1 -db -bbox -sgen -100 -30 1490 400
 "
 }
 {
